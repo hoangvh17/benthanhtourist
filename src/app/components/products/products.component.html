@@ -1,0 +1,64 @@
+<div class="search-products">
+  <div class="box-tourlist">
+
+    <div class="function">
+      <div class="formSearchProducts">
+        <input class="inputsearch" type="text" name="keyword" [(ngModel)]="keyword" placeholder="Nhập...">
+        <button><a class="clicksearch" href="javascript:void(0)" (click)="onSearch()">TÌM TOUR</a></button>
+
+        <h2>Kết quả tìm kiếm: {{this.keyword}}</h2>
+
+
+      </div>
+      <div class="sortBox">
+        <div class="sortChild">
+          <label for="sortField">Sắp xếp</label>
+          <select id="sortField" [(ngModel)]="sortField" (change)="onSortFieldChange()">
+            <option value="">-- Chọn tiêu chí --</option>
+            <option value="name">Theo tên</option>
+            <option value="price">Theo giá</option>
+          </select>
+        </div>
+        <div class="sortChild">
+          <label for="sortOrder">Thứ tự</label>
+          <select id="sortOrder" [(ngModel)]="sortOrder" (change)="onSortOrderChange()">
+            <option value="asc">Tăng</option>
+            <option value="desc">Giảm</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let product of products">
+        <div class="tour">
+          <a [routerLink]="['/product-detail/' + product._id]" title="{{ product.name }}">
+            <img class="tour-img" [src]="product.image" alt="" width="374px" height="264px">
+          </a>
+          <div class="caption">
+            <div class="title-tour" title="{{ product.name }}">
+              <a [routerLink]="['/product-detail/' + product._id]">
+                {{product.name}}
+              </a>
+            </div>
+            <div class="location">
+              <i class="fa-solid fa-flag"></i>
+              <span> Hồ Chí Minh</span>
+            </div>
+            <div class="time">
+              <i class="fa-regular fa-clock"></i>
+              <span> 01/06/2024</span>
+            </div>
+          </div>
+          <div class="bottom">
+            <i class="fa-solid fa-money-bill"></i>
+            <span> {{product.price | currency: 'VND'}}</span>
+            <button>ĐẶT NGAY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

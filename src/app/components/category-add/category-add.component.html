@@ -1,0 +1,28 @@
+<div class="col-md-10 main-admin m-0">
+  <div class="col-md-10 box-admin">
+    <form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+      <div class="card">
+        <div class="card-header">
+          Add new category
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" formControlName="name" [(ngModel)]="category.name" class="form-control" placeholder="fill name" aria-describedby="namehelpId">
+          </div>
+          <div class="form-group">
+            <div></div>
+            <small *ngIf="!categoryForm.get('name')?.valid && categoryForm.get('name')?.touched" id="namehelpId" class="text-muted">
+              Category name is required and at least 6 characters
+            </small>
+          </div>
+
+          <br>
+          <div class="form-group">
+            <button class="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>

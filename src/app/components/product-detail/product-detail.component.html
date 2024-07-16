@@ -1,0 +1,163 @@
+<!-- <div>{{product.name}}</div>
+<div><img [src]="product.image" alt=""></div>
+
+<div>{{product.price | currency}}</div>
+<div>{{product.desc}}</div>
+<div>{{product.category}}</div> -->
+<div class="pathlink" *ngIf="product">
+  <a [routerLink]="['/home']">Trang Chủ</a> &nbsp;/&nbsp; {{ product.name }}
+</div>
+<div class="detailproduct">
+  <div class="box-detail"  *ngIf="product">
+      <!-- <h3 class="titledead-detail">
+        {{ product.name }}
+      </h3> -->
+    <div class="row">
+      <div class="col-md-7 image-detail">
+        <img [src]="product.image" alt="" width="100%">
+      </div>
+      <div class="col-md-5">
+        <div>
+          <div class="title-detail">
+            {{ product.name }}
+          </div>
+          <div class="info-detail"><i class="icon-detail fa-solid fa-clock"></i> Thời gian: 5 ngày 2 đêm</div>
+          <div class="info-detail"><i class="icon-detail fa-solid fa-calendar-day"></i> Ngày khởi hành: 30/05/2024</div>
+          <div class="info-detail"><i class="icon-detail fa-solid fa-plane"></i> Phương tiện: Máy bay - Xe ô tô</div>
+          <div class="info-detail"><i class="icon-detail fa-solid fa-user"></i> Số còn chỗ: 10</div>
+          <div class="info-detail"><i class="icon-detail fa-solid fa-map-marker-alt"></i> Điểm khởi hành: từ Hồ Chí Minh</div>
+          <div class="info-detail"><i class="icon-detail fa-solid fa-tag"></i> Mã tour: BTTOKR00HCM26012474G</div>
+          <div class="info-detail support-detail">
+            <i class="icon-detail fas fa-gift"></i> Ưu đãi: <br>
+            - Hỗ trợ thuê phương tiện <br>
+            - Bao lo đặt hộ khách sạn <br>
+            - Hướng dẫn tận tình, chu đáo <br>
+          </div>
+          <div class="buy-detail">
+            <div class="price-detail"> {{product.price | currency: 'VND':'symbol'}}</div>
+            <button class="btn-addtocard">ĐẶT TOUR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="description-detail">
+      <div class="titledesc-detail">
+        LỊCH TRÌNH TOUR
+      </div>
+      <div class="content-detail">
+        {{product.desc}}
+      </div>
+    </div>
+    <div class="suggested-tour">
+      <div class="suggested-tour-title">
+        Gợi ý tour
+      </div>
+      <div class="row">
+        <div class="col-md-3 mb-6" *ngFor="let product of productt">
+          <div class="suggested-tour">
+              <a [routerLink]="['/product-detail/' + product._id]" title="{{ product.name }}">
+                <img class="tour-img" [src]="product.image" alt="" width="100%">
+              </a>
+            <div class="caption">
+                <div class="title-tour" title="{{ product.name }}">
+                    <a [routerLink]="['/product-detail/' + product._id]">
+                        {{product.name}}
+                    </a>
+                </div>
+                <div class="time">
+                    <i class="fa-regular fa-clock"></i>
+                    <span> 01/06/2024</span>
+                </div>
+            </div>
+            <div class="bottom">
+                <i class="fa-solid fa-money-bill"></i>
+                <span> {{product.price | currency: 'VND' }}</span>
+                <button>ĐẶT NGAY</button>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="ask-answer">
+      <div class="product-review" *ngIf="product">
+        <h2>Đánh giá Chất lượng {{ product.name }}</h2>
+        <div class="review-list">
+          <div class="review">
+            <div class="review-header">
+              <div class="review-author">Nguyễn Bảo Hưng</div>
+              <div class="review-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="review-body">
+              <p>Chuyến đi quá tuyệt vời, hãy đăng ký tour trên web này vì bạn sẽ cảm thấy rất tuyệt vời giống tôi. </p>
+            </div>
+            <div class="review-date">01-05-2024</div>
+          </div>
+          <div class="review">
+            <div class="review-header">
+              <div class="review-author">Lâm Chấn Toàn</div>
+              <div class="review-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="review-body">
+              <p>Không có gì để chê, tui chỉ có việc làm theo hướng dẫn và mọi thứ đã có HuyHoang tourist lo tất. Trên cả tuyệt vời.</p>
+            </div>
+            <div class="review-date">19-05-2024</div>
+          </div>
+          <div class="review">
+            <div class="review-header">
+              <div class="review-author">Trần Thanh Phong</div>
+              <div class="review-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="review-body">
+              <p>Không có mang tính chất seeding nhưng thật sự theo cảm nhận của tôi và hội bạn nhận thấy khi đi tour hãy chọn HuyHoang tourist.</p>
+            </div>
+            <div class="review-date">23-5-2024</div>
+          </div>
+        </div>
+        <div class="review-form">
+          <h3>Viết đánh giá của bạn</h3>
+          <form>
+            <div class="form-group">
+              <label for="author">Tên của bạn</label>
+              <input type="text" id="author" required>
+            </div>
+            <div class="form-group">
+              <label for="rating">Đánh giá</label>
+              <select id="rating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comment">Nhận xét</label>
+              <textarea id="comment" required></textarea>
+            </div>
+            <button type="submit">Gửi đánh giá</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

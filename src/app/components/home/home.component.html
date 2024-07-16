@@ -1,0 +1,222 @@
+<main>
+  <div class="slider-wrapper">
+      <div class="slider">
+          <img src="/assets/images/du-lich-han-quoc.png" alt="" width="100%">
+      </div>
+      <div class="search">
+          <div class="box-search">
+              <form action="">
+                <div>
+                  <input type="text" name="keyword" [(ngModel)]="keyword" placeholder="Nhập...">
+                </div>
+                <select name="" id="">
+                    <option value="">Nơi khởi hành</option>
+                    <option value="">Hà Nội</option>
+                    <option value="">Đà Nẵng</option>
+                    <option value="">Hồ Chí Minh</option>
+                </select>
+                <select name="" id="">
+                    <option value="">Điểm đến</option>
+                    <option value="">Korea</option>
+                    <option value="">Japan</option>
+                    <option value="">China</option>
+                    <option value="">Dubai</option>
+                    <option value="">Thailand</option>
+                </select>
+                <input type="date">
+
+                <button><a class="clicksearch" href="javascript:void(0)" (click)="onSearch()">TÌM TOUR</a></button>
+              </form>
+          </div>
+
+      </div>
+
+      <div class="slider-menu">
+          <div class="container-box">
+              <div class="nav-slider-menu">
+                  <a class="type-tour" href="">
+                      <span class="icon-type-tour">
+                          <img src="/assets/images/tourofsummer.png" alt="">
+                      </span>
+                      <span class="text-type-tour">TOUR HÈ 2024</span>
+                  </a>
+                  <a class="type-tour" href="">
+                      <span class="icon-type-tour">
+                          <img src="/assets/images/tourofyear.png" alt="">
+                      </span>
+                      <span class="text-type-tour">TOUR OF THE YEAR 2024</span>
+                  </a>
+                  <a class="type-tour" href="">
+                      <span class="icon-type-tour">
+                          <img src="/assets/images/tourcheap.png" alt="">
+                      </span>
+                      <span class="text-type-tour">TOUR SIÊU TIẾT KIỆM</span>
+                  </a>
+                  <a class="type-tour" href="">
+                      <span class="icon-type-tour">
+                          <img src="/assets/images/tourvip.png" alt="">
+                      </span>
+                      <span class="text-type-tour">TOUR CAO CẤP</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="hottour">
+      <div class="box-tourlist">
+          <div class="hottour-title">
+              <span>Chúng tôi đang giới thiệu đến bạn</span>
+              <h2>TOUR ĐANG HOT</h2>
+          </div>
+          <div class="row">
+              <div class="col-md-4 mb-3" *ngFor="let product of products">
+                  <div class="tour">
+                      <a [routerLink]="['/product-detail/' + product._id]" title="{{ product.name }}">
+                          <img class="tour-img" [src]="product.image" alt="" width="100%">
+                      </a>
+                      <div class="caption">
+                          <div class="label-hot">
+                              <img src="/assets/images/hot.png" alt="">
+                          </div>
+                          <div class="title-tour" title="{{ product.name }}">
+                              <a [routerLink]="['/product-detail/' + product._id]">
+                                  {{product.name}}
+                              </a>
+                          </div>
+                          <div class="location">
+                              <i class="fa-solid fa-flag"></i>
+                              <span> Hồ Chí Minh</span>
+                          </div>
+                          <div class="time">
+                              <i class="fa-regular fa-clock"></i>
+                              <span> 01/06/2024</span>
+                          </div>
+                      </div>
+                      <div class="bottom">
+                          <i class="fa-solid fa-money-bill"></i>
+                          <span> {{product.price | currency: 'VND'}}</span>
+                          <button>ĐẶT NGAY</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="attractivetour">
+      <div class="box-atractivetour">
+          <div class="atractivetour-title">
+              <span>Các nước đang là cao điểm hiện tại</span>
+              <h2>ĐIỂM ĐẾN HẤP DẪN</h2>
+          </div>
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/chau-au.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Châu Âu</button>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/chau-a.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Châu Á</button>
+                      </a>
+                  </div>
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/chau-uc.png" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Châu Úc</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-2 col-sm-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/chau-my.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Châu Mỹ</button>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-md-2 col-sm-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/chau-phi.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Châu Phi</button>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-md-2 col-sm-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/mien-bac.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Miền Bắc</button>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-md-2 col-sm-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/mien-trung.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Miền Trung</button>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-md-2 col-sm-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/mien-nam.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Miền Nam</button>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-md-2 col-sm-4">
+                  <div class="thumbnail">
+                      <a href="">
+                          <img src="/assets/images/tay-nguyen.jpg" alt="" width="100%">
+                          <button class="btn-atractivetour">Du Lịch Tây Nguyên</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="subscription">
+      <div class="box-subscription">
+          <div class="row">
+              <div class="col-md-6 left-subscription">
+                  <div class="box-iconmail">
+                      <i class="fa-regular fa-envelope"></i>
+                  </div>
+                  <div>
+                      <h4>Đăng ký để nhận Bản Tin</h4>
+                      <span>
+                          Nhập email để nhận chương trình tour khuyến mãi nhanh nhất
+                          và các ưu đãi hấp dẫn khác
+                      </span>
+                  </div>
+
+              </div>
+              <div class="col-md-5 form-subscription">
+                  <form action="" >
+                      <input type="email" placeholder="Nhập email của bạn">
+                      <button>Đăng ký</button>
+                  </form>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</main>

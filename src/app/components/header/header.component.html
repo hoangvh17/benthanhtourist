@@ -1,0 +1,74 @@
+<header>
+  <div class="menu-top">
+      <div class="box-menu-top">
+          <div class="hotline">
+              <a href="">0347456777</a>
+          </div>
+          <div class="icon">
+              <!-- <a [routerLink]="['/login']" class="icon-children">
+                  <span class="icon-children-text">Tài khoản</span>
+                  <i class="fa-solid fa-user"></i>
+              </a> -->
+              <a href="" class="icon-children">
+                  <span class="icon-children-text">Giỏ hàng</span>
+                  <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+              <a href="" class="icon-children">
+                  <span class="icon-children-text">Facebook</span>
+                  <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="" class="icon-children">
+                  <span class="icon-children-text">Ngôn ngữ</span>
+                  <i class="fa-solid fa-language"></i>
+              </a>
+          </div>
+
+      </div>
+
+  </div>
+  <div class="menu-main">
+      <div class="box-menu-main">
+          <div class="logo">
+              <a [routerLink]="['/home']">
+                  <img src="/assets/images/logo-sunworld-png.png" alt="" width="150px">
+              </a>
+          </div>
+          <ul class="menu-list">
+              <li><a [routerLink]="['/home']">TRANG CHỦ</a></li>
+              <li>
+                  <a [routerLink]="['/products']" routerLinkActive="router-link-active" >DỊCH VỤ</a>
+                  <ul class="submenu" >
+                      <li *ngFor="let category of categories"><a [routerLink]="['/products']" [queryParams]="{categoryId: category._id}" routerLinkActive="router-link-active" >{{category.name}}</a></li>
+                  </ul>
+
+              </li>
+
+              <!-- <li>
+                  <a href="">TRAVEL TIPS</a>
+              </li> -->
+              <li>
+                  <a href="">GIỚI THIỆU</a>
+              </li>
+              <li>
+                <a href="">LIÊN HỆ</a>
+              </li>
+
+              <li *ngIf="!isLogin">
+                <a href="">TÀI KHOẢN</a>
+                <ul  class="submenu-login">
+                  <li><a *ngIf="!isLogin" [routerLink]="['/login']">Đăng nhập</a></li>
+                  <li><a *ngIf="!isLogin" [routerLink]="['/register']">Đăng ký</a></li>
+                </ul>
+              </li>
+              <li *ngIf="isLogin">
+                <a class="hi">Xin Chào {{ isLogin.user.fullname }}</a>
+                <ul class="submenu-account">
+                  <li><a *ngIf="isLogin" [routerLink]="['/myaccount']">Tài khoản</a></li>
+                  <li><a *ngIf="isAdmin" [routerLink]="['/statistic']">Trang quản trị</a></li>
+                  <li><a *ngIf="isLogin" (click)="onLogout()">Đăng xuất</a></li>
+                </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+</header>

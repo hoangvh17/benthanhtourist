@@ -1,0 +1,90 @@
+<div class="col-md-10 m-0 main-admin">
+  <div class="col-md-10 box-admin">
+    <form (ngSubmit)="onSubmit()" [formGroup]="productForm">
+      <div class="card" *ngIf="product">
+        <div class="card-header">
+          Edit Product
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" formControlName="name" class="form-control"
+              [(ngModel)]="product.name" placeholder="fill name" aria-describedby="nameHelpId">
+
+          </div>
+          <div class="form-group">
+            <div></div>
+            <small *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" id="nameHelpId"
+              class="text-muted">
+              Product name is required and at least 6 characters
+            </small>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" formControlName="price" class="form-control"
+              [(ngModel)]="product.price" placeholder="fill price" aria-describedby="priceHelpId">
+
+          </div>
+          <div class="form-group">
+            <div></div>
+            <small *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" id="priceHelpId"
+              class="text-muted">
+              Product price is required
+            </small>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="image">Image URL</label>
+            <input type="text" name="image" id="image" formControlName="image" class="form-control"
+              [(ngModel)]="product.image" placeholder="fill image url" aria-describedby="imageHelpId">
+
+
+          </div>
+          <div class="form-group">
+            <div></div>
+            <small *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched" id="imageHelpId"
+              class="text-muted">
+              Product image is required
+            </small>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea name="desc" id="desc" formControlName="desc" class="form-control" [(ngModel)]="product.desc"
+              placeholder="fill desc" aria-describedby="descHelpId"></textarea>
+
+          </div>
+          <div class="form-group">
+            <div></div>
+            <small *ngIf="productForm.get('desc')?.invalid && productForm.get('desc')?.touched" id="descHelpId"
+              class="text-muted">
+              Product description is required and at least 9 characters
+            </small>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category" formControlName="category" class="form-control"
+              [(ngModel)]="product.category">
+              <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+            </select>
+
+          </div>
+          <div class="form-group">
+            <div></div>
+            <small *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched"
+              id="categoryHelpId" class="text-muted">
+              Product category is required
+            </small>
+          </div>
+          <br>
+          <div class="form-group">
+            <button class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
